@@ -2,6 +2,9 @@
 #define MY_FLIGHT_CLASS
 #include <iostream>
 class Flight{
+    public:
+        Flight();
+        
     private:
     string id;
     int num_rows;
