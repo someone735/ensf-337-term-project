@@ -1,5 +1,6 @@
 #ifndef MY_FLIGHT_CLASS
 #define MY_FLIGHT_CLASS
+#include <iostream>
 class Flight{
     private:
     string id;
