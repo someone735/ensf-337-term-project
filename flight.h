@@ -10,6 +10,7 @@ class Flight{
     public:
         Flight();
         ~Flight();
+        Flight(Flight &src);
         vector<int> display_seatmap();
 
         // Setters

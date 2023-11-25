@@ -4,8 +4,11 @@
         public:
             Seat();
             ~Seat();
+            Seat(Seat &src);
+
             void setrow();
             void setcolums();
+
             int getrow() const;
             int getcolumns() const;
         private:
