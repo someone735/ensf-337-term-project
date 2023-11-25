@@ -3,15 +3,15 @@
 #include <string>
 #include <iostream>
 #include "seat.h"
+using namespace std;
     class Passenger {
         public:
             Passenger();
-            Passenger(string fname, string lname, int phoneNumber);
+            ~Passenger();
         private:
         string fname;
         string lname;
         string phone;
-        
-
-    }
+        Seat* seat; 
+    };
 #endif
