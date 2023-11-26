@@ -1,35 +1,36 @@
-#include "Airline.h"
-#include <iostream>
+#include "airline.h"
 
-void Airline::addFlight(const Flight& newFlight) {
-    flights.push_back(newFlight);
+// Default Constructor
+Airline::Airline() : name(""), flights(), num_flights(0) {}
+
+// Destructor 
+Airline::~Airline() {
+    
 }
 
-void Airline::showAllFlights() const {
-    std::cout << "List of all flights:" << std::endl;
-    for (const auto& flight : flights) {
-        std::cout << "Flight Number: " << flight.flightNumber << " | Rows: " << flight.numRows
-                  << " | Seats per Row: " << flight.numSeatsPerRow << std::endl;
-    }
+// Copy Constructor
+Airline::Airline(const Airline& src) : name(src.name), flights(src.flights), num_flights(src.num_flights) {
+    
 }
 
-void Airline::showAllPassengers() const {
-    for (const auto& flight : flights) {
-        flight.showPassengerInfo();
-    }
+// Getter functions
+std::string Airline::get_name() const {
+    return name;
 }
 
-void Airline::addPassenger(int id, const std::string& firstName, const std::string& lastName, const std::string& phoneNumber, int row, const std::string& seat) {
-    Flight& targetFlight = flights.front(); 
-    Seat newPassengerSeat(row, seat[0]);
-    Passenger newPassenger(firstName, lastName, phoneNumber, &newPassengerSeat, id);
-    targetFlight.addPassenger(newPassenger);
+int Airline::get_numflights() const{
+    return num_flights;
 }
 
-void Airline::removePassenger(int id) {
-    for (auto& flight : flights) {
-        flight.removePassenger(id);
-    }
+// Setter functions
+
+void Airline::set_name(string name){
+    name = airline_name;
+}
+
+void Airline::set_num_flights(int number_of_flights)
+{
+    num_flights = number_of_flights;
 }
 
 void Airline::saveToFile(const std::string& filename) const {

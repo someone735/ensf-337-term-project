@@ -1,72 +1,76 @@
-#include "Flight.h"
-#include <iostream>
+#include "flight.h"
 
-void Flight::showSeatMap() const {
-    std::cout << "Aircraft Seat Map" << std::endl;
-
+// Default Constructor
+Flight::Flight() : id(""), num_rows(0), num_cols(0), passengers(), seat_map() {
     
-    std::cout << " ";
-    for (char seat = 'A'; seat < 'A' + numSeatsPerRow; ++seat) {
-        std::cout << seat << " ";
-    }
-    std::cout << std::endl;
+}
 
+// Destructor
+Flight::~Flight() {
     
-    for (int row = 0; row < numRows; ++row) {
-        std::cout << row << "|";
-        for (char seat = 'A'; seat < 'A' + numSeatsPerRow; ++seat) {
+}
+
+// Copy Constructor
+Flight::Flight(const Flight& src) : id(src.id), num_rows(src.num_rows), num_cols(src.num_cols), passengers(src.passengers), seat_map(src.seat_map) {
+    
+}
+
+// Member function to display seat map
+std::vector<int> Flight::display_seat_map() const {
+    // Displaying a simple seat map on the console
+    std::cout << "       Aircraft Seat Map\n";
+    std::cout << "     A   B   C   D   E   F\n";
+    std::cout << "   +---+---+---+---+---+---+\n";
+
+    for (int row = 0; row < num_rows; ++row) {
+        std::cout << row << " |";
+        for (int col = 0; col < num_cols; ++col) {
+            // Check if the seat is occupied
             bool occupied = false;
-
-            
-            for (const auto& passenger : passengerList) {
-                if (passenger.assignedSeat->row == row && passenger.assignedSeat->seat == seat) {
+            for (const Passenger& passenger : passengers) {
+                if (passenger.get_seat() && passenger.get_seat()->get_row() == row && passenger.get_seat()->get_columns() == col) {
                     occupied = true;
                     break;
                 }
             }
 
-            std::cout << (occupied ? "X" : " ") << "|";
+            // Display 'X' for occupied seats, ' ' for available seats
+            char seatStatus = occupied ? 'X' : ' ';
+            std::cout << "   " << seatStatus << " |";
         }
-        std::cout << std::endl;
+        std::cout << "\n";
+        std::cout << "   +---+---+---+---+---+---+\n";
     }
+
+    // Returning a vector of integers as a placeholder
+    return std::vector<int>();
 }
 
-void Flight::showPassengerInfo() const {
-    std::cout << "First Name Last Name Phone Row Seat ID" << std::endl;
-    std::cout << "-----------------------------------------------------------------" << std::endl;
-    for (const auto& passenger : passengerList) {
-        passenger.displayInfo();
-        std::cout << "-----------------------------------------------------------------" << std::endl;
-    }
+
+// Setters
+void Flight::set_num_rows(int rows) {
+    num_rows = rows;
 }
 
-void Flight::addPassenger(const Passenger& newPassenger) {
-    passengerList.push_back(newPassenger);
+void Flight::set_num_cols(int cols) {
+    num_cols = cols;
 }
 
-void Flight::removePassenger(int id) {
-    auto it = std::remove_if(passengerList.begin(), passengerList.end(), [id](const Passenger& passenger) {
-        return passenger.id == id;
-    });
-
-    passengerList.erase(it, passengerList.end());
+void Flight::set_id(string input){
+    id = input
 }
 
-void Flight::saveToFile(const std::string& filename) const {
-    std::ofstream outFile(filename);
 
-    if (outFile.is_open()) {
-        outFile << flightNumber << " " << numRows << " " << numSeatsPerRow << "\n";
 
-        
-        for (const auto& passenger : passengerList) {
-            outFile << passenger.firstName << " " << passenger.lastName << " " << passenger.phoneNumber << " "
-                    << passenger.assignedSeat->row << passenger.assignedSeat->seat << " " << passenger.id << "\n";
-        }
+// Getters
+int Flight::get_num_rows() const {
+    return num_rows;
+}
 
-        outFile.close();
-        std::cout << "Passenger information saved to " << filename << std::endl;
-    } else {
-        std::cerr << "Error: Unable to open the file for writing." << std::endl;
-    }
+int Flight::get_num_cols() const {
+    return num_cols;
+}
+
+std::string Flight::get_id() const {
+    return id;
 }

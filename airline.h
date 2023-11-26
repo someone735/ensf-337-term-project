@@ -7,16 +7,16 @@
 #include "passenger.h"
 #include "seat.h"
 
-class airline
+class Airline
 {
 private:
     string name;
     vector <Flight> flights;
     int num_flights;
 public:
-    airline();
-    ~airline();
-    airline(airline &src);
+    Airline();
+    ~Airline();
+    Airline(Airline &src);
 
     string get_name() const;
     int get_numflights() const;
@@ -26,11 +26,11 @@ public:
 
 };
 
-airline::airline(/* args */)
+Airline::Airline(/* args */)
 {
 }
 
-airline::~airline()
+Airline::~Airline()
 {
 }
 

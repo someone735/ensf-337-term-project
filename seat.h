@@ -4,13 +4,13 @@
         public:
             Seat();
             ~Seat();
-            Seat(Seat &src);
+            Seat(const Seat& src);
 
-            void setrow();
-            void setcolums();
+            void set_row();
+            void set_colums();
 
-            int getrow() const;
-            int getcolumns() const;
+            int get_row() const;
+            int get_columns() const;
         private:
             int rowsM;
             int columnsM;
