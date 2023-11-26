@@ -1,13 +1,18 @@
-#ifndef SEAT_H
-#define SEAT_H
+#ifndef MY_SEAT_CLASS
+#define MY_SEAT_CLASS
+    class Seat{
+        public:
+            Seat();
+            ~Seat();
+            Seat(Seat &src);
 
-class Seat {
-public:
-    int row;
-    char seat;
+            void setrow();
+            void setcolums();
 
-    Seat(int row, char seat);
-
-};
-
+            int getrow() const;
+            int getcolumns() const;
+        private:
+            int rowsM;
+            int columnsM;
+    };
 #endif

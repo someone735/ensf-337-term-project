@@ -1,19 +1,38 @@
-#ifndef AIRLINE_H
-#define AIRLINE_H
+#ifndef MY_AIRLINE_CLASS
+#define MY_AIRLINE_CLASS
+#include <iostream>
+#include <vector>
+#include <string>
+#include "flight.h"
+#include "passenger.h"
+#include "seat.h"
 
-#include "Flight.h"
-
-class Airline {
-public:
-    void addFlight(const Flight& newFlight);
-    void showAllFlights() const;
-    void showAllPassengers() const;
-    void addPassenger(int id, const std::string& firstName, const std::string& lastName, const std::string& phoneNumber, int row, const std::string& seat);
-    void removePassenger(int id);
-    void saveToFile(const std::string& filename) const;
-
+class airline
+{
 private:
-    std::vector<Flight> flights;
+    string name;
+    vector <Flight> flights;
+    int num_flights;
+public:
+    airline();
+    ~airline();
+    airline(airline &src);
+
+    string get_name() const;
+    int get_numflights() const;
+    
+    void set_name(string name);
+    void set_num_flights(int num_flights);
+
 };
+
+airline::airline(/* args */)
+{
+}
+
+airline::~airline()
+{
+}
+
 
 #endif

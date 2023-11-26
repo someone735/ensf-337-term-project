@@ -1,20 +1,28 @@
-#ifndef PASSENGER_H
-#define PASSENGER_H
-
-#include "Seat.h"
+#ifndef MY_PASSENGER_CLASS
+#define MY_PASSENGER_CLASS
 #include <string>
+#include <iostream>
+#include "seat.h"
+using namespace std;
+    class Passenger {
+        public:
+            Passenger();
+            ~Passenger();
+            Passenger(Passenger &src);
 
-class Passenger {
-public:
-    std::string firstName;
-    std::string lastName;
-    std::string phoneNumber;
-    Seat* assignedSeat;
-    int id;
+            string get_fname() const;
+            string get_lname() const;
+            string get_phone() const;
+            Seat get_seat() const;
 
-    Passenger(const std::string& firstName, const std::string& lastName, const std::string& phoneNumber, Seat* assignedSeat, int id);
-
-    void displayInfo() const;
-};
-
+            void set_fname(string input);
+            void set_lname(string input);
+            void set_phone(string input);
+            Seat set_seat(Seat* seat);
+        private:
+        string fname;
+        string lname;
+        string phone;
+        Seat* seat; 
+    };
 #endif
