@@ -58,7 +58,7 @@ void Flight::saveToFile(const std::string& filename) const {
     if (outFile.is_open()) {
         outFile << flightNumber << " " << numRows << " " << numSeatsPerRow << "\n";
 
-        // Write passenger information
+        
         for (const auto& passenger : passengerList) {
             outFile << passenger.firstName << " " << passenger.lastName << " " << passenger.phoneNumber << " "
                     << passenger.assignedSeat->row << passenger.assignedSeat->seat << " " << passenger.id << "\n";
