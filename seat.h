@@ -3,8 +3,12 @@
     class Seat{
         public:
             Seat();
-            Seat(int rows, int columns);
             ~Seat();
+            Seat(Seat &src);
+
+            void setrow();
+            void setcolums();
+
             int getrow() const;
             int getcolumns() const;
         private:
