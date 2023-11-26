@@ -1,12 +1,26 @@
-#ifndef MY_FLIGHT_CLASS
-#define MY_FLIGHT_CLASS
-#include <iostream>
-class Flight{
-    private:
-    string id;
-    int num_rows;
-    int num_cols;
-    vector <passenger> passengers;
-    vector <vector<seat>> seatmap;
-    }
+#ifndef FLIGHT_H
+#define FLIGHT_H
+
+#include "Passenger.h"
+#include <vector>
+#include <fstream>
+
+class Flight {
+public:
+    std::string flightNumber;
+    int numRows;
+    int numSeatsPerRow;
+    std::vector<Passenger> passengerList;
+
+    void showSeatMap();
+
+    void showPassengerInfo();
+
+    void addPassenger(const Passenger& newPassenger);
+
+    void removePassenger(int id);
+
+    void saveToFile(const std::string& filename);
+};
+
 #endif

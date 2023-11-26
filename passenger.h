@@ -1,17 +1,20 @@
-#ifndef MY_PASSENGER_CLASS
-#define MY_PASSENGER_CLASS
-#include <string>
-#include <iostream>
-#include "seat.h"
-    class Passenger {
-        public:
-            Passenger();
-            Passenger(string fname, string lname, int phoneNumber);
-        private:
-        string fname;
-        string lname;
-        string phone;
-        
+#ifndef PASSENGER_H
+#define PASSENGER_H
 
-    }
+#include "Seat.h"
+#include <string>
+
+class Passenger {
+public:
+    std::string firstName;
+    std::string lastName;
+    std::string phoneNumber;
+    Seat* assignedSeat;
+    int id;
+
+    Passenger(const std::string& firstName, const std::string& lastName, const std::string& phoneNumber, Seat* assignedSeat, int id);
+
+    void displayInfo() const;
+};
+
 #endif
