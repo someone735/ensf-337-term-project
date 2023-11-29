@@ -4,10 +4,10 @@ Seat::Seat(){
 
 }
 
-Seat::Seat(int rows, int columns){
-    rowsM = rows;
-    columnsM = columns;
-}
+// Seat::Seat(int rows, int columns){
+//     rowsM = rows;
+//     columnsM = columns;
+// }
 
 int Seat::getcolumns() const{
     return columnsM;
