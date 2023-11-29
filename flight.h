@@ -10,8 +10,8 @@ class Flight{
     public:
         Flight();
         ~Flight();
-        Flight(Flight &src);
-        vector<int> display_seatmap();
+        Flight(const Flight &src);
+        vector<int> display_seatmap() const;
 
         // Setters
         void set_num_rows(int rows);
@@ -23,6 +23,9 @@ class Flight{
         int get_num_rows() const;
         int get_num_cols() const;
         string get_id() const;
+        Passenger* get_passenger(int x) const;
+
+        void add_passenger();
     private:
     string id;
     int num_rows;

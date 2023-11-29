@@ -1,18 +1,30 @@
 #include "seat.h"
 
-Seat::Seat(){
+// Default Constructor
+Seat::Seat() : rowsM(0), columnsM(0) {}
 
+// Destructor
+Seat::~Seat() {
 }
 
-// Seat::Seat(int rows, int columns){
-//     rowsM = rows;
-//     columnsM = columns;
-// }
-
-int Seat::getcolumns() const{
-    return columnsM;
+// Copy Constructor
+Seat::Seat(const Seat& src) : rowsM(src.rowsM), columnsM(src.columnsM) {
 }
 
-int Seat::getrow() const{
+// Setter functions
+void Seat::setrow(int rows) {
+    rowsM = rows;
+}
+
+void Seat::setcolumns(int columns) {
+    columnsM = columns;
+}
+
+// Getter functions
+int Seat::getrow() const {
     return rowsM;
+}
+
+int Seat::getcolumns() const {
+    return columnsM;
 }
