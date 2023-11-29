@@ -24,7 +24,7 @@ string Passenger::get_phone() const {
     return phone;
 }
 
-const Seat* Passenger::get_seat() const {
+Seat* Passenger::get_seat() const {
     return seat;
 }
 
@@ -52,7 +52,7 @@ void Passenger::display_info() const {
     std::cout << "Phone Number: " << phone << "\n";
 
     if (seat) {
-        std::cout << "Seat: " << seat->get_row() << seat->get_columns() << "\n";
+        std::cout << "Seat: " << seat->getrow() << seat->getcolumns() << "\n";
     } else {
         std::cout << "Seat: Not assigned\n";
     }

@@ -1,7 +1,7 @@
 #include "flight.h"
 
 // Default Constructor
-Flight::Flight() : id(""), num_rows(0), num_cols(0), passengers(), seat_map() {
+Flight::Flight() : id(""), num_rows(0), num_cols(0), passengers(), seatmap() {
     
 }
 
@@ -28,7 +28,7 @@ std::vector<int> Flight::display_seatmap() const {
             // Check if the seat is occupied
             bool occupied = false;
             for (const Passenger& passenger : passengers) {
-                if (passenger.get_seat() && passenger.get_seat().getrow() == row && passenger.get_seat().getcolumns() == col) {
+                if (passenger.get_seat() && passenger.get_seat()->getrow() == row && passenger.get_seat()->getcolumns() == col) {
                     occupied = true;
                     break;
                 }

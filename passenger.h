@@ -8,17 +8,19 @@ using namespace std;
         public:
             Passenger();
             ~Passenger();
-            Passenger(Passenger &src);
+            Passenger(const Passenger &src);
 
             string get_fname() const;
             string get_lname() const;
             string get_phone() const;
-            Seat get_seat() const;
+            Seat* get_seat() const;
 
-            void set_fname(string input);
-            void set_lname(string input);
-            void set_phone(string input);
-            Seat set_seat(Seat* seat);
+            void set_fname(const string& input);
+            void set_lname(const string& input);
+            void set_phone(const string& input);
+            void set_seat(Seat* new_seat);
+
+            void display_info() const;
         private:
         string fname;
         string lname;
