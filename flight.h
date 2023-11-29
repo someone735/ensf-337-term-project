@@ -23,6 +23,9 @@ class Flight{
         int get_num_rows() const;
         int get_num_cols() const;
         string get_id() const;
+        Passenger* get_passenger(int x) const;
+
+        void add_passenger();
     private:
     string id;
     int num_rows;

@@ -15,6 +15,7 @@ using namespace std;
             int getrow() const;
             int getcolumns() const;
             string get_seat_status() const;
+
         private:
             int rowsM;
             int columnsM;
