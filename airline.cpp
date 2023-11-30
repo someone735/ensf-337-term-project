@@ -1,7 +1,7 @@
 #include "Airline.h"
 
 // Default Constructor
-Airline::Airline() name(""), flights(), num_flights(0) {}
+Airline::Airline() : name(""), flights(), num_flights(0) {}
 
 // Destructor 
 Airline::~Airline() {
@@ -40,11 +40,11 @@ void Airline::saveToFile(const std::string& filename) const {
 
         
         for (const auto& flight : flights) {
-            outFile << "Flight " << flight.flightNumber << "\n";
+            outFile << "Flight " << flight.get_id() << "\n";
             flight.saveToFile(outFile);
         }
 
         outFile.close();
-        std::cout << "Airline information saved to " << filename <<
+        std::cout << "Airline information saved to " << filename << std::endl;
     }
 }    
