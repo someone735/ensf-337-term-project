@@ -31,6 +31,6 @@ class Flight{
     int num_rows;
     int num_cols;
     vector <Passenger> passengers;
-    vector <vector<Seat>> seatmap;
+    vector <vector<Seat> > seatmap;
     };
 #endif

@@ -1,7 +1,7 @@
 #include "passenger.h"
 
 // Default Constructor
-Passenger::Passenger() : fname(""), lname(""), phone(""), seat(nullptr) {}
+Passenger::Passenger() : fname(""), lname(""), phone(""), seat(nullptr), id(0){}
 
 // Destructor
 Passenger::~Passenger() {
@@ -28,6 +28,10 @@ Seat* Passenger::get_seat() const {
     return seat;
 }
 
+int Passenger::get_id() const{
+    return id;
+}
+
 // Setter functions
 void Passenger::set_fname(const string& input) {
     fname = input;
@@ -43,6 +47,10 @@ void Passenger::set_phone(const string& input) {
 
 void Passenger::set_seat(Seat* new_seat) {
     seat = new_seat;
+}
+
+void Passenger::set_id(const int input_id){
+    id = input_id;
 }
 
 void Passenger::display_info() const {

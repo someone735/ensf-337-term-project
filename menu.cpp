@@ -121,12 +121,6 @@ Flight populate_flight(string file_name){
     read_file >> read_rows;
     int read_seats;
     read_file >> read_seats;
-    
-
-    new_flight.set_id(read_id);
-
-    
-    read_file.close();
     return new_flight;
 }
 
