@@ -7,7 +7,7 @@
 #include "flight.h"
 #include "passenger.h"
 #include "seat.h"
-
+using namespace std;
 class Airline
 {
 private:
@@ -24,17 +24,9 @@ public:
     
     void set_name(string name);
     void set_num_flights(int num_flights);
-    void Airline::saveToFile(const std::string& filename) const;
+    // void Airline::saveToFile(const std::string& filename) const;
 
 };
-
-Airline::Airline(/* args */)
-{
-}
-
-Airline::~Airline()
-{
-}
 
 
 #endif

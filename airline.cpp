@@ -1,11 +1,10 @@
-#include "Airline.h"
+#include "airline.h"
 
 // Default Constructor
 Airline::Airline() : name(""), flights(), num_flights(0) {}
 
 // Destructor 
 Airline::~Airline() {
-    
 }
 
 // Copy Constructor
@@ -33,18 +32,18 @@ void Airline::set_num_flights(int number_of_flights)
     num_flights = number_of_flights;
 }
 
-void Airline::saveToFile(const std::string& filename) const {
-    std::ofstream outFile(filename);
+// void Airline::saveToFile(const std::string& filename) const {
+//     std::ofstream outFile(filename);
 
-    if (outFile.is_open()) {
+//     if (outFile.is_open()) {
 
         
-        for (const auto& flight : flights) {
-            outFile << "Flight " << flight.get_id() << "\n";
-            flight.saveToFile(outFile);
-        }
+//         for (const auto& flight : flights) {
+//             outFile << "Flight " << flight.get_id() << "\n";
+//             flight.saveToFile(outFile);
+//         }
 
-        outFile.close();
-        std::cout << "Airline information saved to " << filename << std::endl;
-    }
-}    
+//         outFile.close();
+//         std::cout << "Airline information saved to " << filename << std::endl;
+//     }
+// }    
