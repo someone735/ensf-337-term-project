@@ -77,8 +77,8 @@ std::string Flight::get_id() const {
     return id;
 }
 
-Passenger* Flight::get_passenger(int x) const{
-    return passenger();
+Passenger Flight::get_passenger(int x) const{
+    return passengers[x];
 }
 
 Passenger add_passenger(){
@@ -88,7 +88,7 @@ Passenger add_passenger(){
     
     do{
         
-    }while (1)
+    }while (1);
 
     cout << "Please enter the first name" << endl;
     string input_fname;
