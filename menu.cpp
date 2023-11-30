@@ -1,10 +1,20 @@
 #include<vector>
 #include<string>
 #include <iostream>
-// #include "flight.h"
+#include <fstream>
+#include "flight.h"
 using namespace std;
 
 void pressEnter();
+
+void displayHeader();
+
+Flight populate_flight(string file_name);
+
+int menu();
+
+void pressEnter();
+
 int main(){
     cout << "Version 1.0" << endl;
     cout << "Term Project - Flight Management Program in C++" << endl;
@@ -93,3 +103,37 @@ void pressEnter(){
     cin.ignore();
 }
 
+void displayHeader(){
+    cout << "Version 1.0" << endl;
+    cout << "Term Project - Flight Management Program in C++" << endl;
+    cout << "Produced by: Guntaas Uppal, John Tumacder, Noor ul Islam, Syed Waliullah" << endl;
+    cout << "Year: 2023" << endl;
+    pressEnter();
+}
+
+Flight populate_flight(string file_name){
+    Flight new_flight;
+    ifstream read_file;
+    read_file.open(file_name);
+    string read_id;
+    read_file >> read_id;
+    new_flight.set_id(read_id);
+
+    
+    read_file.close();
+    return new_flight;
+}
+
+
+int menu(){
+    cout << "Please select one of the following options:" << endl;
+    cout << "1. Display Flight Seat Map" << endl;
+    cout << "2. Display Passengers Information" << endl;
+    cout << "3. Add a new Passenger" << endl;
+    cout << "4. Remove an Existing Passenger" << endl;
+    cout << "5. Save data" << endl;
+    cout << "6. Quit" << endl << endl;
+    cout << "Select option: 1, 2, 3, 4, 5, 6" << endl;
+    int x;
+    cin>>x;
+}
