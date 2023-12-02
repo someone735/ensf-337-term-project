@@ -21,7 +21,6 @@ int main(){
     cout << "Produced by: John Tumacder, Noor ul Islam, Syed Waliullah" << endl;
     cout << "Year: 2023" << endl;
     int x = 0;
-
     pressEnter();
     while(1){
         cout << "Please select one of the following options:" << endl;
@@ -117,7 +116,7 @@ Flight populate_flight(string file_name){
     read_file.open(file_name);
     if (!read_file.is_open()){
         cerr << "Error opening file" << endl;
-        return;
+        return new_flight;
     }
     string read_id;
     read_file >> read_id;
@@ -125,6 +124,9 @@ Flight populate_flight(string file_name){
     read_file >> read_rows;
     int read_seats;
     read_file >> read_seats;
+
+    read_file >> read_id >> read_rows >> read_seats;
+    cout << read_id << read_rows << read_seats;
     return new_flight;
 }
 

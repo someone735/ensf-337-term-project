@@ -18,6 +18,7 @@ Flight populate_flight(string file_name){
     Flight new_flight;
     ifstream read_file;
     read_file.open(file_name);
+    if (!read_file.is_open())
     string read_flight_id;
     getline(read_file,read_flight_id, ' ');
     int read_rows_string;
