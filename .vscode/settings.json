@@ -7,6 +7,8 @@
         "vector": "cpp",
         "filesystem": "cpp",
         "istream": "cpp",
-        "fstream": "cpp"
+        "fstream": "cpp",
+        "*.tcc": "cpp",
+        "deque": "cpp"
     }
 }

@@ -7,6 +7,7 @@ using namespace std;
     class Passenger {
         public:
             Passenger();
+            Passenger(const string &fname, const string &lname, const string &phone, const Seat &seat, const int &id);
             ~Passenger();
             Passenger(const Passenger &src);
 
@@ -14,7 +15,7 @@ using namespace std;
             string get_lname() const;
             string get_phone() const;
             Seat* get_seat() const;
-            int get_id() const;
+            int get_pass_id() const;
 
             void set_fname(const string& input);
             void set_lname(const string& input);

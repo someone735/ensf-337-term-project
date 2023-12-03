@@ -143,3 +143,22 @@ int menu(){
     int x;
     cin>>x;
 }
+
+// cout << "Please enter the passenger id" << endl;
+//                 string input_id;
+//                 getline(cin, input_id);
+//                 cout << "Please enter the first name" << endl;
+//                 string input_fname;
+//                 getline(cin, input_fname);
+//                 cout << "Please enter the last name" << endl;
+//                 string input_lname;
+//                 cout << "Please enter the phone number" << endl;
+//                 string input_phone;
+//                 getline(cin, input_phone);
+
+//                 cout << "Enter the passengers desired row" << endl;
+//                 int input_row;
+//                 cin >> input_row;
+//                 cout << "Enter the passengers desired seat" << endl;
+//                 char input_seat ;
+//                 input_seat = getchar();  

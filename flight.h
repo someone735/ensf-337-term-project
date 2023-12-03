@@ -3,6 +3,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <sstream>
 #include "passenger.h"
 #include "seat.h"
 using namespace std;
@@ -25,7 +26,8 @@ class Flight{
         string get_id() const;
         Passenger get_passenger(int x) const;
 
-        void add_passenger();
+        void populate_flight(const string file_name);
+        void add_passenger(const string in_fname, const string in_lname, const string in_phone, Seat* in_seat, const int in_id);
     private:
     string id;
     int num_rows;

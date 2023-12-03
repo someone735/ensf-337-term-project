@@ -3,6 +3,14 @@
 // Default Constructor
 Passenger::Passenger() : fname(""), lname(""), phone(""), seat(nullptr), id(0){}
 
+Passenger::Passenger(const string &fname, const string &lname, const string &phone, const Seat &seat, const int id) : 
+fname(fname), lname(lname), phone(phone), seat(seat), id(id){}
+
+// Passenger::Passenger(const std::string &fName, const std::string &lName,
+//                      const std::string &phone, const Seat &seat, int passengerID)
+//     : firstName(fName), lastName(lName), phoneNumber(phone),
+//       assignedSeat(seat), id(passengerID) {}
+
 // Destructor
 Passenger::~Passenger() {
 }
@@ -28,7 +36,7 @@ Seat* Passenger::get_seat() const {
     return seat;
 }
 
-int Passenger::get_id() const{
+int Passenger::get_pass_id() const{
     return id;
 }
 
@@ -49,7 +57,7 @@ void Passenger::set_seat(Seat* new_seat) {
     seat = new_seat;
 }
 
-void Passenger::set_id(const int input_id){
+void Passenger::set_id(int input_id){
     id = input_id;
 }
 

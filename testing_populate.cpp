@@ -12,52 +12,60 @@
 #include "seat.cpp"
 using namespace std;
 
-Flight populate_flight(string file_name);
+Flight populate_flight_not(const string file_name);
 
-Flight populate_flight(string file_name){
+Flight populate_flight_not(const string file_name){
     Flight new_flight;
     ifstream read_file;
     read_file.open(file_name);
-    if (!read_file.is_open())
+    if (!read_file.is_open()){
+        cerr << "Error in reading file " << file_name << endl; 
+        return new_flight;
+    } 
     string read_flight_id;
-    getline(read_file,read_flight_id, ' ');
-    int read_rows_string;
-    read_file >> read_rows_string;
-    // int read_rows = stoi(read_rows_string);
-    int read_num_seats_string;
-    read_file >> read_num_seats_string;
-    // int read_seats = stoi(read_num_seats_string);
-    
-    cout << read_flight_id << read_rows_string << read_num_seats_string << endl; 
-    getline(read_file,read_flight_id, '\n');
-    char read_fname_temp[21];
-    char read_lname_temp[21];
-    char read_phone_temp[21];
-    string read_fname;
-    string read_lname;
-    string read_phone;
-    string read_seat;
-    string read_id;
-    // getline(read_file,read_fname, ' ');
-    // getline(read_file,read_lname, ' ');
-    read_file.get(read_fname_temp, 20, '\n');
-    read_fname = read_fname_temp;
-    read_file.get(read_lname_temp, 20, '\n');
-    read_lname = read_lname_temp;
-    read_file.get(read_phone_temp, 20, '\n');
-    read_phone = read_phone_temp;
-    getline(read_file, read_seat, ' ');
-    int row = read_seat[0];
-    int seat = read_seat[1];
-    getline(read_file, read_id);
-    cout << read_fname << read_lname << read_phone << row << seat << read_id << endl;
+    int read_rows, read_num_seats; 
+    read_file >> read_flight_id >> read_rows >> read_num_seats;
+   
     new_flight.set_id(read_flight_id);
-    read_file.close();
+    new_flight.set_num_rows(read_rows);
+    new_flight.set_num_cols(read_num_seats);
+    
+    string read_line;
+    getline(read_file, read_line);
+    while (getline(read_file, read_line)) {
+        char fname_ch[21], lname_ch[21], phone_ch[21];
+        istringstream iss(read_line);
+        int seat_loc_row;
+        char seat_loc_col;
+        int pass_id;
+        
+        iss.get(fname_ch, 21, '\n');
+        string fname(fname_ch);
+        fname.erase(fname.find_last_not_of(' ')+1);
 
+        iss.get(lname_ch, 21, '\n');
+        string lname(lname_ch);
+        lname.erase(lname.find_last_not_of(' ')+1);
+
+        iss.get(phone_ch, 21, '\n');
+        string phone(phone_ch);
+        phone.erase(phone.find_last_not_of(' ')+1);
+
+        iss >> seat_loc_row >> seat_loc_col >> pass_id;
+        Seat new_seat;
+        new_seat.setrow(seat_loc_row);
+        new_seat.setcolumns(seat_loc_col);
+
+        cout << pass_id<< endl;
+        new_flight.add_passenger(fname, lname, phone, &new_seat, pass_id);
+    } 
+    read_file.close();
+    cout << new_flight.get_passenger(0).get_pass_id()<< endl;
     return new_flight;
 }
 
 int main(){
-    Flight f = populate_flight("flight_info.txt");
+    Flight f = populate_flight_not("flight_info.txt");
+    // cout << f.get_passenger(1).get_pass_id() << ' '<< (f.get_passenger(0).get_seat())->getcolumns() << endl;
     return 0;
 }

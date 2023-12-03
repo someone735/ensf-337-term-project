@@ -1,12 +1,10 @@
 #include "flight.h"
-#include <string>
 using namespace std;
 
 // Default Constructor
 Flight::Flight() : id(""), num_rows(0), num_cols(0), passengers(), seatmap() {
-    
-}
 
+}
 // Destructor
 Flight::~Flight() {
     
@@ -14,7 +12,9 @@ Flight::~Flight() {
 
 // Copy Constructor
 Flight::Flight(const Flight& src) : id(src.id), num_rows(src.num_rows), num_cols(src.num_cols), passengers(src.passengers), seatmap(src.seatmap) {
-    
+    // for (int i = 0; i < src.passengers.size(); i++){
+    //     this -> passengers.push_back(passengers[i]);
+    // }
 }
 
 // Member function to display seat map
@@ -81,28 +81,12 @@ Passenger Flight::get_passenger(int x) const{
     return passengers[x];
 }
 
-Passenger add_passenger(){
-    cout << "Please enter the passenger id" << endl;
-    string input_id;
-    getline(cin, input_id);
-    
-    do{
-        
-    }while (1);
-
-    cout << "Please enter the first name" << endl;
-    string input_fname;
-    getline(cin, input_fname);
-    cout << "Please enter the last name" << endl;
-    string input_lname;
-    cout << "Please enter the phone number" << endl;
-    string input_phone;
-    getline(cin, input_phone);
-
-    cout << "Enter the passengers desired row" << endl;
-    int input_row;
-    cin >> input_row;
-    cout << "Enter the passengers desired seat" << endl;
-    char input_seat ;
-    input_seat = getchar();  
+void Flight::add_passenger(const string in_fname, const string in_lname, const string in_phone, Seat* in_seat, const int in_id){
+    Passenger new_passenger;
+    new_passenger.set_fname(in_fname);
+    new_passenger.set_lname(in_lname);
+    new_passenger.set_phone(in_phone);
+    new_passenger.set_seat(in_seat);
+    new_passenger.set_id(in_id);
+    passengers.push_back(new_passenger);
 }

@@ -1,7 +1,7 @@
 #include "seat.h"
 
 // Default Constructor
-Seat::Seat() : rowsM(0), columnsM(0) {}
+Seat::Seat() : rowsM(0), columnsM(0), seat_status("Free"){}
 
 // Destructor
 Seat::~Seat() {

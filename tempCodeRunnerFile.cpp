@@ -1,2 +1,1 @@
-er.h"
-// #include "seat.h"
+cout
