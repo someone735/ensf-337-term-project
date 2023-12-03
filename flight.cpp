@@ -78,10 +78,10 @@ std::string Flight::get_id() const {
 }
 
 Passenger Flight::get_passenger(int x) const{
-    return passengers[x];
+    return passengers.at(x);
 }
 
-void Flight::add_passenger(const string in_fname, const string in_lname, const string in_phone, Seat* in_seat, const int in_id){
+void Flight::add_passenger(const string in_fname, const string in_lname, const string in_phone, Seat* in_seat, const int *in_id){
     Passenger new_passenger;
     new_passenger.set_fname(in_fname);
     new_passenger.set_lname(in_lname);

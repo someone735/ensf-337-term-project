@@ -32,6 +32,7 @@ Flight populate_flight_not(const string file_name){
     
     string read_line;
     getline(read_file, read_line);
+    int i = 0;
     while (getline(read_file, read_line)) {
         char fname_ch[21], lname_ch[21], phone_ch[21];
         istringstream iss(read_line);
@@ -56,11 +57,11 @@ Flight populate_flight_not(const string file_name){
         new_seat.setrow(seat_loc_row);
         new_seat.setcolumns(seat_loc_col);
 
-        cout << pass_id<< endl;
-        new_flight.add_passenger(fname, lname, phone, &new_seat, pass_id);
+        new_flight.add_passenger(fname, lname, phone, &new_seat, &pass_id);
+        cout << new_flight.get_passenger(i).get_pass_id()<< endl;
+        i++;
     } 
     read_file.close();
-    cout << new_flight.get_passenger(0).get_pass_id()<< endl;
     return new_flight;
 }
 
