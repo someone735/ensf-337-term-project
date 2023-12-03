@@ -57,7 +57,7 @@ Flight populate_flight_not(const string file_name){
         new_seat.setrow(seat_loc_row);
         new_seat.setcolumns(seat_loc_col);
 
-        new_flight.add_passenger(fname, lname, phone, &new_seat, &pass_id);
+        new_flight.add_passenger(fname, lname, phone, &new_seat, pass_id);
         cout << new_flight.get_passenger(i).get_pass_id()<< endl;
         i++;
     } 
