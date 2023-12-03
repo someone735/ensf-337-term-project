@@ -29,7 +29,9 @@ Flight populate_flight_not(const string file_name){
     new_flight.set_id(read_flight_id);
     new_flight.set_num_rows(read_rows);
     new_flight.set_num_cols(read_num_seats);
-    
+
+    read_file.ignore();
+
     string read_line;
     getline(read_file, read_line);
     int i = 0;
@@ -53,12 +55,20 @@ Flight populate_flight_not(const string file_name){
         phone.erase(phone.find_last_not_of(' ')+1);
 
         iss >> seat_loc_row >> seat_loc_col >> pass_id;
+
+        // Ensure pass_id is a 5-digit number
+        if (pass_id < 10000 || pass_id > 99999) {
+        cerr << "Error: Passenger ID should be a 5-digit number. Skipping passenger." << endl;
+        continue;  // Skip this passenger
+    }
+
         Seat new_seat;
         new_seat.setrow(seat_loc_row);
         new_seat.setcolumns(seat_loc_col);
 
-        new_flight.add_passenger(fname, lname, phone, &new_seat, &pass_id);
-        cout << new_flight.get_passenger(i).get_pass_id()<< endl;
+        new_flight.add_passenger(fname, lname, phone, &new_seat, pass_id);
+        cout << "Passenger ID from file: " << pass_id << endl;
+        cout << "Passenger ID being set: " << new_flight.get_passenger(i).get_pass_id() << endl;
         i++;
     } 
     read_file.close();

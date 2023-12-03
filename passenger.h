@@ -20,7 +20,7 @@ using namespace std;
             void set_lname(const string& input);
             void set_phone(const string& input);
             void set_seat(Seat* new_seat);
-            void set_id(const int *id);
+            void set_id(int input_id);
 
             void display_info() const;
         private:

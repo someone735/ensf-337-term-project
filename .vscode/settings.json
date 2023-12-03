@@ -10,5 +10,6 @@
         "fstream": "cpp",
         "*.tcc": "cpp",
         "deque": "cpp"
-    }
+    },
+    "C_Cpp.errorSquiggles": "disabled"
 }

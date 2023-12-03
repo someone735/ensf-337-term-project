@@ -27,7 +27,7 @@ class Flight{
         Passenger get_passenger(int x) const;
 
         void populate_flight(const string file_name);
-        void add_passenger(const string in_fname, const string in_lname, const string in_phone, Seat* in_seat, const int *in_id);
+        void add_passenger(const string in_fname, const string in_lname, const string in_phone, Seat* in_seat, int in_id);
     private:
     string id;
     int num_rows;
