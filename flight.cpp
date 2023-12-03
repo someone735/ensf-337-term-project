@@ -81,6 +81,7 @@ Passenger Flight::get_passenger(int x) const{
     return passengers.at(x);
 }
 
+void Flight::add_passenger(const string in_fname, const string in_lname, const string in_phone, Seat* in_seat, const int in_id){
 void Flight::add_passenger(const string in_fname, const string in_lname, const string in_phone, Seat* in_seat, int in_id){
     Passenger new_passenger;
     new_passenger.set_fname(in_fname);

@@ -52,6 +52,8 @@ void Passenger::set_seat(Seat* new_seat) {
 void Passenger::set_id(int input_id) {
     cout << "Passenger ID being set: " << input_id << endl;
     id = input_id;
+void Passenger::set_id(const int input_id){
+    id = input_id;
 }
 
 
